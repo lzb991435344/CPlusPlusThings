@@ -3,7 +3,7 @@
 
 
 using namespace std;
-// template template parameter 模板模板参数
+// template template parameter 妯℃澘妯℃澘鍙傛暟
 template<typename T,
 	template<typename U> class Container>
 class XCls {
