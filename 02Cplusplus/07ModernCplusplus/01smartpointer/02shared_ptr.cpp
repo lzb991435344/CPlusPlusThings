@@ -88,6 +88,8 @@ public:
 	shared_ptr(shared_ptr<U> &&other) noexcept {
 		//        cout << "调用了带模板的移动构造!" << endl;
 		ptr_ = other.ptr_;
+
+		//当前的指针不为空
 		if (ptr_) {
 			shared_count_ =
 				other.shared_count_;
@@ -120,6 +122,8 @@ public:
 
 private:
 	T *ptr_;
+
+	//嵌入类的指针，用于管理引用计数
 	shared_count *shared_count_;
 };
 
@@ -128,18 +132,22 @@ void swap(shared_ptr<T> &lhs, shared_ptr<T> &rhs) noexcept {
 	lhs.swap(rhs);
 }
 
+
+//对象之间动态转换
 template<typename T, typename U>
 shared_ptr<T> dynamic_pointer_cast(const shared_ptr<U> &other) noexcept {
 	T *ptr = dynamic_cast<T *>(other.get());
 	return shared_ptr<T>(other, ptr);
 }
 
+//静态转换
 template<typename T, typename U>
 shared_ptr<T> static_pointer_cast(const shared_ptr<U> &other) noexcept {
 	T *ptr = static_cast<T *>(other.get());
 	return shared_ptr<T>(other, ptr);
 }
 
+//常量指针之间的转换
 template<typename T, typename U>
 shared_ptr<T> const_pointer_cast(
 	const shared_ptr<U> &other) noexcept {

@@ -2,6 +2,11 @@
 /**
 #include "../RAII/shape.h"
 
+
+//unique_ptr对象包装一个原始指针，并负责其生命周期。当该对象被销毁时，
+//会在其析构函数中删除关联的原始指针。unique_ptr具有->和*运算符重载符，
+//因此它可以像普通指针一样使用。
+
 template<typename T>
 class unique_ptr {
 public:
@@ -47,6 +52,7 @@ public:
 	}
 
 	void swap(unique_ptr &rhs) noexcept {
+		//使用标准库的swap
 		using std::swap;
 		swap(ptr_, rhs.ptr_);    // 转移指针所有权
 	}
@@ -62,6 +68,8 @@ void swap(unique_ptr<T> &lhs, unique_ptr<T> &rhs) {
 }
 
 int main() {
+
+	//unique 独享对象，包一个原始的指针
 	unique_ptr<shape> ptr1{ create_shape(shape_type::circle) };
 	//    unique_ptr<shape> ptr2{ptr1}; // error
 	unique_ptr<shape> ptr2_2{ std::move(ptr1) };    // ok
