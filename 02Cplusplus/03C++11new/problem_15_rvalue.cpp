@@ -12,10 +12,21 @@ int foo() { return 5; }
 
 class Foo {
 public:
+	//=default: 用于显式要求编译器提供合成版本的四大函数(构造、拷贝、析构、赋值)
+	//=delete可以告知编译器，不生成默认的这些成员。
+	//1、=delete可以使用在任意的函数上(可以引导函数匹配过程)，除了析构函数(析构函数为删除函数将 
+	//导致该类型无法销毁);=default必须用在有默认合成函数的函数上。 
+	//2、=delete必须出现在函数第一次声明的时候。
+
 	Foo() = default;
 
 	Foo(const Foo &foo) = default;
+	
 
+	//基本的异常处理方式
+	//1.Foo(Foo &foo)  throw(){}    C++11之前
+	//2.Foo(Foo &foo) noexcept {}   C++11之后
+	
 	Foo(Foo &&foo) noexcept {}
 };
 
