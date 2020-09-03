@@ -28,6 +28,7 @@ public:
 	// explicit-one-argument ctor 可以把别的东西转换为Fraction这种
 	explicit Fraction1(int num, int den = 1) : m_numerator(num), m_denominator(den) {}
 
+	//重载+号
 	Fraction1 operator+(const Fraction1 &f) {
 		return Fraction1(this->m_numerator + f.m_numerator);
 	}
@@ -52,7 +53,7 @@ public:
 		cout << "non-explicit P(int a,int b,int c)\n";
 	}
 
-
+	//不会进行隐式转换
 	explicit P(int a, int b, int c, int d) {
 		cout << "explicit P(int a,int b,int c,int d)\n";
 	}

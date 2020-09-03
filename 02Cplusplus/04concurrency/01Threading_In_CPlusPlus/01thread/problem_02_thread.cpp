@@ -5,7 +5,7 @@
 using namespace std::chrono;
 using namespace std;
 
-
+//使用两个线程分别算出各自寻找需要的时间
 /**
  * 1.普通函数指针
  * 2.Lambda函数

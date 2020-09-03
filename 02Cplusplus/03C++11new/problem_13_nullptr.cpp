@@ -10,6 +10,7 @@ void f(void *p) {
 	cout << "void f(void *p)" << endl;
 }
 
+//C中绝大多数的类型都可转换成void*，C++为强类型，定义为0(问题：存在二义性，可以使int的地址)
 
 int main() {
 	f(0);

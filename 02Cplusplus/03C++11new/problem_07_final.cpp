@@ -19,7 +19,7 @@ class Base1 {
 public:
 	Base1() {}
 
-	virtual void func() final {}
+	virtual void func() final {} //不能再被override
 };
 
 class Derivered1 : public Base1 {

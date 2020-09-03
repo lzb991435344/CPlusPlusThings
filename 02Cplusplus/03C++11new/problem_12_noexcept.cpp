@@ -13,7 +13,7 @@ using namespace std;
 // 则容器增长的时候不会调用move constructor，效率就会偏低，所以后面需要加上noexcept，安心使用。
 /**
 void foo() noexcept(true) {
-
+//异常传递传到上层，最后未处理则调用abort结束
 }*/
 
 /**

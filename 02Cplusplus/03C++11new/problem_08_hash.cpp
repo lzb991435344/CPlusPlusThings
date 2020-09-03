@@ -21,7 +21,7 @@ public:
 // 形式二 这个方法实际是通过指定了一个函数指针的方式来通知容器，对于这个自定义类到底应该
 使用哪个hash function
 
-size_t customer_hash_func(const Customer &t) {
+size_t customer_hash_func(const Customer &t) { //自定义类来通知容器使用哪个hash函数
 	//    return ...;
 }
 // 形式三 以struct hash 偏特化形式实现hash function
