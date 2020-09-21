@@ -3,7 +3,7 @@ using namespace std;
 
 // pImpl: Pointer-to-Implementation
 
-class private_foo;
+class private_foo; //前置声明
 
 class foo {
 public:
@@ -14,7 +14,7 @@ public:
 	void bar();
 
 private:
-	private_foo *pImpl;
+	private_foo *pImpl; //嵌入其他类的指针
 };
 
 class private_foo {
@@ -38,8 +38,9 @@ void foo::bar() {
 	pImpl->bar();
 }
 
-/**
+//调用的方法是其他类内部的成员函数
+//g++ problem_02_Pimpl.cpp -o pimpl 编译
 int main() {
 	foo f;
-	f.bar();
-}*/
+	f.bar(); //private_foo invoke bar funciton.
+}

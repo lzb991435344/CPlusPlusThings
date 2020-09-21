@@ -11,6 +11,7 @@ namespace EntityType {
 	};
 }
 
+//使用命名空间和直接使用enum的区别
 void foo(EntityType::Enum entityType)
 {
 	if (entityType == EntityType::Ground) {

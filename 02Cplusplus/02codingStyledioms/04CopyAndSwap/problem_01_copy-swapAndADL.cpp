@@ -126,8 +126,6 @@ namespace A {
 //
 //}
 
-
-/**
 int main() {
 
 	using std::swap;
@@ -141,7 +139,7 @@ int main() {
 
 	A::smart_ptr<std::string> s3 = s1;
 	A::smart_ptr<std::string> s4 = std::move(s1);
-}*/
+}
 /**
 hello world
 world hello
