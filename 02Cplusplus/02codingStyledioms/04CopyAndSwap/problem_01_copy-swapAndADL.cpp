@@ -75,10 +75,13 @@ namespace A {
 			swap(rhs);
 			return *this;
 		}
-		// move ctor
+		// move ctor  两个&&，减少了数据的拷贝
 		smart_ptr(smart_ptr &&rhs) noexcept {
 			std::cout << "move ctor" << std::endl;
+			//右值变左值，指针赋值
 			ptr_ = rhs.ptr_;
+			
+			//完成传值之后将原来的指针置为空（nullptr）
 			if (ptr_)
 				rhs.ptr_ = nullptr;
 		}
@@ -92,7 +95,7 @@ namespace A {
 //        }
 
 		void swap(smart_ptr &rhs) noexcept { // noexcept == throw() 保证不抛出异常
-			using std::swap;
+			using std::swap;	//使用标准库的swap
 			swap(ptr_, rhs.ptr_);
 		}
 
