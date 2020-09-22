@@ -47,3 +47,28 @@ int main(){
 
     return 0;
 }
+/**
+ * bcde
+a
+a
+abcdefgh
+h
+d
+e
+99
+c
+c
+99
+97
+a
+abcdefghijk
+cdefghijk
+0
+0
+1
+1
+ * 
+ * 
+ * 
+ * 
+*/
